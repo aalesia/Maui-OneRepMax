@@ -8,11 +8,7 @@ public class MainPageViewModel : INotifyPropertyChanged
     private ObservableCollection<WorkoutEntity> _workouts;
     public ObservableCollection<WorkoutEntity> Workouts
     {
-        get 
-        { 
-            return _workouts; 
-        }
-
+        get { return _workouts; }
         set
         {
             if (_workouts != value)
@@ -22,6 +18,7 @@ public class MainPageViewModel : INotifyPropertyChanged
             }
         }
     }
+    
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged(string propertyName)

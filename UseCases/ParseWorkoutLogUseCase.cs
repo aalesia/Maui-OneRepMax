@@ -28,6 +28,7 @@ public class ParseWorkoutLogUseCase : IUseCase<List<WorkoutEntity>>
             sortedWorkouts.Add(workout);
         }
 
+        _dataSource.ClearRecords();
         _dataSource.AddRecords(sortedWorkouts.OrderBy(x => x.Name).ToList());
 
         return Task.FromResult(_dataSource.GetRecords());

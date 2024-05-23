@@ -14,6 +14,10 @@ public class DI
         return Application.Current.MainPage.Handler.MauiContext.Services.GetService<IUseCase<List<WorkoutEntity>>>();
     }
 
+    public static IUseCase<List<WorkoutRecordEntity>, List<WorkoutRecordEntity>> GetMaxWeightPerDayListUseCase() {
+        return Application.Current.MainPage.Handler.MauiContext.Services.GetService<IUseCase<List<WorkoutRecordEntity>, List<WorkoutRecordEntity>>>();
+    }
+
     public static MainPageViewModel GetMainPageViewModel() {
         return Application.Current.MainPage.Handler.MauiContext.Services.GetService<MainPageViewModel>();
     }

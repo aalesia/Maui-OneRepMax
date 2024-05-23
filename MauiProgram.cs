@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microcharts.Maui;
+using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MauiApp1;
 
@@ -9,6 +11,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseSkiaSharp()
+			.UseMicrocharts()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -44,6 +48,7 @@ public static class MauiProgram
 	public static MauiAppBuilder RegisterUseCases(this MauiAppBuilder mauiAppBuilder)
 	{
     	mauiAppBuilder.Services.AddSingleton<IUseCase<List<WorkoutEntity>>, ParseWorkoutLogUseCase>();
+		mauiAppBuilder.Services.AddSingleton<IUseCase<List<WorkoutRecordEntity>, List<WorkoutRecordEntity>>, MaxWeightPerDayListUseCase>();
 		return mauiAppBuilder;
 	}
 
